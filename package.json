@@ -1,0 +1,22 @@
+{
+  "name": "cypressudemycourse",
+  "version": "1.0.0",
+  "description": "This repository is used to:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofyl/cypressUdemyCourse.git"
+  },
+  "author": "Joseph Loutfi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jofyl/cypressUdemyCourse/issues"
+  },
+  "homepage": "https://github.com/jofyl/cypressUdemyCourse#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  }
+}

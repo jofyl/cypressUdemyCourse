@@ -1,0 +1,21 @@
+You can force click on elements een if they are hidden behind other popup elements behind.
+
+Handle API validation and check request data being sent.
+
+You can also mock API responses to test edge cases such as the backend being down (4xx, 5xx) which normally can not be tested in real time since they would be flagged as "not right for automation".
+
+npmtrends.com => check usage of Node tools and packages
+
+electron also supported => lighweight version of chromium engine
+
+brew install node
+
+npmjs.com
+
+use npm to manage project dependencies with Package.json
+
+create a project folder
+init Package.json => npm -i init
+
+install cypress: npm install cypress --save-dev
+
