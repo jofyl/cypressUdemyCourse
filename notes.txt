@@ -1,3 +1,6 @@
+Introduction
+============
+
 You can force click on elements een if they are hidden behind other popup elements behind.
 
 Handle API validation and check request data being sent.
@@ -19,3 +22,39 @@ init Package.json => npm -i init
 
 install cypress: npm install cypress --save-dev
 
+to open cypress test runner
+./node_modules/.bin/cypress open
+
+clicking on any test in testrunner open runs is
+
+cy => global object to invoke all cypress commands
+visit() method => used to navigate to page
+
+cypress bundles electro browser
+when running test from the command line, cypress runs in headless mode
+
+when running tests using npm
+npm run commandname -- listOfArguments => the "--" are used to pass the arguments through npm
+
+when running tests using cypress directly
+cypress run listOfArguments
+
+listOfArguments => when running 1 test (or spec file), use a local pass, starting from the "cypress" folder inside your project
+
+cypress by default, runs in headless mode in electron folder
+
+you can use "/*" to tell cypress to run all the test in a directory
+
+to run in headed mode (i.e browser will open on screen) => --headed
+to run in a browser, --browser name => --browser firefox
+npm run cy:run -- --spec 'cypress/integration/example/*' --headed --browser firefox
+
+Framework Structure
+===================
+fixture => used to store data that can be loaded when testing
+integration => used to store test suites and test cases
+plugins => configs for cypress event listeners, for example, on browser invoke do this, or when test fails, do that
+support => write your customized commands or reusable commands, methods... etc, this folder is scanned and imported by default by cypress. in case you define another folder, you will need to import it in you spec files to use it
+
+cypress.json => configuration files for cypress, can be used to override default existing configurations
+(durations are in milliseconds)
