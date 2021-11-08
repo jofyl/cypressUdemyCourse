@@ -32,7 +32,8 @@ console.log(marks3.includes(80))
 // start looking for 80 from index = 4
 console.log(marks3.includes(80, 4))
 
-// slince elements at index 1 and 2
+// slice elements at index 1 and 2
+console.log('slicing...')
 console.log(marks3.slice(1, 3))
 
 let sum = 0
