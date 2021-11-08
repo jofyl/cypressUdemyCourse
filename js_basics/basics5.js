@@ -1,3 +1,6 @@
+// use a contant because you do not want to alter the Person object here
+const Person = require('./basics8')
+
 let day = 'monday '
 console.log(day.slice(0,4))
 
@@ -30,3 +33,6 @@ while (value != -1) {
 }
 
 console.log(count)
+
+let pers = new Person('hello', 'time')
+pers.fullName()
