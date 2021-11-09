@@ -58,3 +58,32 @@ support => write your customized commands or reusable commands, methods... etc, 
 
 cypress.json => configuration files for cypress, can be used to override default existing configurations
 (durations are in milliseconds)
+
+
+Cypress supports only CSS selectors
+===================================
+identified by:
+id: #idname
+classname: .classname
+if there are multiple elements with the same classname, you can use tagname: tagname.classname, can also be used with id: tagname#idname
+or as tagname[attribute=value] => the latter can be used to customize with any attribute./no
+
+for example:
+<input type="search" placeholder="Search for Vegetables and Fruits" class="search-keyword">
+- no id here
+- classname: .search-keyword
+- input.search-keyword //with tagename
+- input[type="search"] //with tagename
+
+=> cypress built-in browser allows you to find elements on the page
+
+Waits
+=====
+If there is a waiting icon or some kind of clue for cypress to understant that the page is loading, or data is loading, it catches it and it waits, else we will have to provided it with a wait timer
+
+Debug
+=====
+Easy to debug, can see every step along with screenshots of the page
+
+
+
