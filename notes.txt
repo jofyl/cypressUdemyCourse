@@ -85,5 +85,40 @@ Debug
 =====
 Easy to debug, can see every step along with screenshots of the page
 
+Practice Pages
+==============
+https://rahulshettyacademy.com/seleniumPractise/#/
+https://www.rahulshettyacademy.com/AutomationPractice/
+
+parent child chaining
+=====================
+get().find() => search only within the selected elements
+
+Execution
+=========
+cypress is asynchronous in nature, so there is no guarantee that the steps will execute in sequence, but cypress takes care of it, it has the necessary logic implemented as part od its engine to do this
+
+Promises
+========
+States: rejection, resolved, pending => the "then()" method is hidden (less noise), taken care of by cypress
+thus, cypress commands are really promises
+
+Cypress Commands vs JQuery Methods
+==================================
+cy.get('.brand').text(): this will not work, text() is not cypress method or command
+this comes from JQuery: https://docs.cypress.io/api/table-of-contents
+When dealing with methods that are not part of cypress, then the you will have to resolve
+the promise manually using .then() since the commands do not resolve the promises by themselves
+
+Another example would be console.log(), since it is JS and not cypress method, if will execute asynchronously, so in order to use it woth cypress
+.the(() => {
+    console.log('bla');
+})
+
+Chrome Security
+===============
+https://docs.cypress.io/guides/guides/web-security#Disabling-Web-Security
+Check the following link in case you encouter cross-origin errors or when dealing with iframes
+
 
 
