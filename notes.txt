@@ -30,7 +30,7 @@ clicking on any test in testrunner open runs is
 cy => global object to invoke all cypress commands
 visit() method => used to navigate to page
 
-cypress bundles electro browser
+cypress bundles electron browser
 when running test from the command line, cypress runs in headless mode
 
 when running tests using npm
@@ -123,7 +123,7 @@ Another example would be console.log(), since it is JS and not cypress method, i
 Chrome Security
 ===============
 https://docs.cypress.io/guides/guides/web-security#Disabling-Web-Security
-Check the following link in case you encouter cross-origin errors or when dealing with iframes
+Check the following link in case you encouter cross-origin/cross-domain errors or when dealing with iframes
 
 User appropriate methods - checkboxes and dropdowns
 ===================================================
@@ -143,8 +143,8 @@ Popups
 cypress handles popups automatically, it auto accetps or clicks "OK", but there is a way to test it
 but cypress also listens to browser events
 
-Child tabs
-==========
+Child tabs (method 1)
+=====================
 Unlike other tools and rivers, cypress do not handled child tabs, tabs that are opened by the current test tab in the same browser.
 This helps avoid flaky tests.
 
@@ -168,3 +168,29 @@ Mouse Hover
 ===========
 Cypress itself does not support mouse hover, it is flaky and the mouse can hover then disapear, instead use JQuery method show() ro find hidden elements
 so cypress has the ability to click on hidden elements as well
+
+Child tabs (method 2)
+=====================
+grab the href attribute then
+cy.vist(href value)
+=> only works if the origin/domain is the same
+=> navigating to sub-domain works
+
+so the best thing to do here, would be to alter the button, remove target="_blank" and alter thr value of its href using JQuery
+this should allow the click to navigate to another website
+PS: you need to turn off web security from cypress.json
+"chromeWebSecurity": false
+
+cy.visit() does not allow cross origin or navigating to "another" super domain, even if security is disabled
+
+Handling Iframes
+================
+Read https://www.cypress.io/blog/2020/02/12/working-with-iframes-in-cypress/
+npm install -D cypress-iframe at project level
+import 'cypress-iframe' in your spec file
+and load it cy.frameLoaded('');
+
+Regular Expression with .find()
+===============================
+find('h1[class*="pricing-title"]');
+The actual full class name is "pricing-title text-white ls-1"
