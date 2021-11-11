@@ -11,7 +11,6 @@ describe('My 4rt test suite', () => {
         cy.get('#alertbtn').click();
 
         cy.on('window:confirm', (str) => {
-            // Will have to use mocha here instead of chai
             expect(str).to.be.eq('Hello , Are you sure you want to confirm?');
 
             // return true or false to represent "OK" or "Cancel"

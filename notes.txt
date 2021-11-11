@@ -93,6 +93,11 @@ https://www.rahulshettyacademy.com/AutomationPractice/
 parent child chaining
 =====================
 get().find() => search only within the selected elements
+get().get() => get is chained to "cy", so even if get() are chained, each will still through the enire document
+
+So the command cy.get("a").find("b") returns all the b elements which are successor of an a element, but cy.get("a").get("b") finds all the a and b elements regardless of they are parent and child.
+
+Using CSS, this can be done by adding a whitespace
 
 Execution
 =========
@@ -103,8 +108,8 @@ Promises
 States: rejection, resolved, pending => the "then()" method is hidden (less noise), taken care of by cypress
 thus, cypress commands are really promises
 
-Cypress Commands vs JQuery Methods
-==================================
+Cypress Commands vs JQuery Methods - .text()
+============================================
 cy.get('.brand').text(): this will not work, text() is not cypress method or command
 this comes from JQuery: https://docs.cypress.io/api/table-of-contents
 When dealing with methods that are not part of cypress, then the you will have to resolve
@@ -120,5 +125,46 @@ Chrome Security
 https://docs.cypress.io/guides/guides/web-security#Disabling-Web-Security
 Check the following link in case you encouter cross-origin errors or when dealing with iframes
 
+User appropriate methods - checkboxes and dropdowns
+===================================================
+check() and uncheck() for checkboxes for example
+should('be.checked') when asserting
 
+assertions can be chained
+should('be.checked').and('have.value', 'option1')
 
+Assertions: Behavior vs Property
+================================
+have => property
+be => behavior
+
+Popups
+======
+cypress handles popups automatically, it auto accetps or clicks "OK", but there is a way to test it
+but cypress also listens to browser events
+
+Child tabs
+==========
+Unlike other tools and rivers, cypress do not handled child tabs, tabs that are opened by the current test tab in the same browser.
+This helps avoid flaky tests.
+
+but, there is actuyally a work around:
+1st check the following: https://www.w3schools.com/tags/att_a_target.asp
+in short, it is related to the attribute: target="_blank"
+=> manipulate the DOM (cypress can do that) and delete it set it to "_self"
+
+We will use invoke() to invoke a JQuery function to modify the DOM
+
+Can user 'include' => with chai to assert on substring
+
+Tables - selecting a column
+===========================
+tr td:nth-child(2)
+finding the next or previous sybling element
+.next() or .prev()
+carefull, if you are iterating using each(), the retreived elements are JQuery elements, so .next() and .pre() can not be applied on it
+
+Mouse Hover
+===========
+Cypress itself does not support mouse hover, it is flaky and the mouse can hover then disapear, instead use JQuery method show() ro find hidden elements
+so cypress has the ability to click on hidden elements as well

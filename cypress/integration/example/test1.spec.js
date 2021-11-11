@@ -29,7 +29,12 @@ describe('My first test suite', function (){
 
         // Assigning found elements to variables => will have to handle the promise manually
         cy.get('.brand').then((logoelement) => {
-            cy.log(logoelement.text());
+            let x = logoelement;
+            cy.log(x);
+            cy.log(x.text());
+
+            let y = cy.wrap(logoelement);
+            cy.log(y);
         })
 
         cy.get('.brand').should('have.text', 'GREENKART');
