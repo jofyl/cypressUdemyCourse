@@ -1,3 +1,7 @@
+Link with many examples
+=======================
+https://github.com/cypress-io/cypress-example-recipes
+
 Introduction
 ============
 
@@ -186,6 +190,7 @@ cy.visit() does not allow cross origin or navigating to "another" super domain, 
 Handling Iframes
 ================
 Read https://www.cypress.io/blog/2020/02/12/working-with-iframes-in-cypress/
+https://github.com/cypress-io/cypress-example-recipes/tree/master/examples/blogs__iframes
 npm install -D cypress-iframe at project level
 import 'cypress-iframe' in your spec file
 and load it cy.frameLoaded('');
