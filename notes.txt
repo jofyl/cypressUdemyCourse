@@ -81,6 +81,8 @@ for example:
 
 => cypress built-in browser allows you to find elements on the page
 
+Note: ".btn.btn-info" is the same as ".btn btn-info" => replace the space with a dot when dealing with classes
+
 Waits
 =====
 If there is a waiting icon or some kind of clue for cypress to understant that the page is loading, or data is loading, it catches it and it waits, else we will have to provided it with a wait timer
@@ -161,8 +163,8 @@ We will use invoke() to invoke a JQuery function to modify the DOM
 
 Can user 'include' => with chai to assert on substring
 
-Tables - selecting a column
-===========================
+Tables - selecting a column - nth-child(x)
+==========================================
 tr td:nth-child(2)
 finding the next or previous sybling element
 .next() or .prev()
@@ -199,3 +201,31 @@ Regular Expression with .find()
 ===============================
 find('h1[class*="pricing-title"]');
 The actual full class name is "pricing-title text-white ls-1"
+
+Framework
+=========
+
+Hooks
+-----
+https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-Structure
+before > beforeEach > afteEach > after
+Best to place these hooks inside describe or context for isolation so that they do not run at root level asynchronously and affetct all other test suites
+
+Fixtures
+--------
+Used to load data into tests
+Best load the fixture in the before() method => remember to resolve the promise .then()
+use "this." => points to entire class
+
+JS Arrow functions and function declarations
+--------------------------------------------
+Arrow functions and function declarations / expressions are not equivalent and cannot be replaced blindly.
+If the function you want to replace does not use this, arguments and is not called with new, then yes.
+
+Debugging
+---------
+inspect element -> console
+then start checking the cypress executed steps => you can check the logs at each steps in more details
+
+you can also use cy.pause()
+or .debug() chained to the commands you want to check
