@@ -229,3 +229,8 @@ then start checking the cypress executed steps => you can check the logs at each
 
 you can also use cy.pause()
 or .debug() chained to the commands you want to check
+
+Page Object Model
+-----------------
+check files in /pageObjects for class creation
+check testFramework8.spec.js for usage
