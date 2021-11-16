@@ -1,5 +1,5 @@
-import HomePage from "../pageObjects/HomePage";
-import ProductPage from "../pageObjects/ProductPage";
+import HomePage from "../../support/pageObjects/HomePage";
+import ProductPage from "../../support/pageObjects/ProductPage";
 
 describe('My 8th test suite', function() {
 

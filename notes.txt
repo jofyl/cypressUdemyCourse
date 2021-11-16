@@ -234,3 +234,21 @@ Page Object Model
 -----------------
 check files in /pageObjects for class creation
 check testFramework8.spec.js for usage
+
+JS vs Cypress commands
+----------------------
+In async mode, JS expressions will execute async, so any time your are using regular JS, you will need to resolve the promise
+You will also need to resolve the promise when needing to access the text for variables not being iterated on
+
+Env
+---
+inside cypress.json
+
+ "env": {
+    "url": "https://rahulshettyacademy.com"
+  }
+
+and when using it: Cypress.env('url') => call as if a function
+
+and when running this from the terminal:
+cypress run --spec ./cypress/integration/example/test9Framework.spec.js --env url=https://google.com --headed

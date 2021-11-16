@@ -1,4 +1,7 @@
 {
   "viewportWidth": 1300,
-  "viewportHeight": 660
+  "viewportHeight": 660,
+  "env": {
+    "url": "https://rahulshettyacademy.com"
+  }
 }
