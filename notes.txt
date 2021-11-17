@@ -314,3 +314,14 @@ Cucumber supports mocha related hooks as well: before/after/beforeEach/afterEach
 create another setup file in the relevant directory and add these hooks there
 variables defined there will be availabe in the test
 when dealing with hooks + cucumber, better use function() instead of fat arrow "() =>"
+
+MUST READ on how to organize tests when using Cucumber and BDD
+https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#how-to-organize-the-tests
+
+running a .feature file: (very similar to .spec.js files)
+cypress run --spec "./cypress/integration/example/bdd/ecommerce.feature" --headed --browser chrome
+
+IMPORTANT
+=========
+"testFiles": "**/*.{feature,features,spec.js}" in cypress.json
+=> needed to specify test files that cypress detects files

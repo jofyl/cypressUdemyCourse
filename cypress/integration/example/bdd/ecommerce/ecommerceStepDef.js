@@ -2,28 +2,15 @@ import { Given, When, Then} from "cypress-cucumber-preprocessor/steps";
 import HomePage from "../../../../support/pageObjects/HomePage";
 import ProductPage from "../../../../support/pageObjects/ProductPage";
 
+const homePage = new HomePage();
+const productPage = new ProductPage();
+
 Given('I open ecommerce page', function () {
     cy.visit(Cypress.env('url') + '/angularpractice/');
 })
 
 When('I add items to cart', function () {
 
-    const homePage = new HomePage();
-
-    homePage.getEditBox()
-        .type(this.data.name)
-        .should('have.attr', 'minlength', '2')
-        .and('have.value', this.data.name);
-
-    homePage.getGender()
-        .select(this.data.gender);
-
-    homePage.getTwoWayDataBinding()
-        .should('have.value', this.data.name);
-
-    homePage.getEntrepreneurRadioButton()
-        .should('be.disabled');
-    
     cy.get('.nav-item:nth-child(2)').click();
 
     // adding the above as a command in commands.js, we do
@@ -34,7 +21,6 @@ When('I add items to cart', function () {
         cy.selectProduct(product);
     })
 
-    const productPage = new ProductPage();
     productPage.getCheckoutButton().click();
 })
 
