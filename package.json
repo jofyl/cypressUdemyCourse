@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:run-test9": "cypress run --spec \"./cypress/integration/example/test9Framework.spec.js\"",
+    "cy:run-test9-chrome": "cypress run --spec \"./cypress/integration/example/test9Framework.spec.js\" --browser chrome",
+    "cy:run-test9-other": "npm run cy:run -- --spec \"./cypress/integration/example/test9Framework.spec.js\"",
+    "cy:run-greenkarttests": "npm run cy:run -- --spec \"./cypress/integration/greenkart/*\" ",
+    "cy:run-greenkarttests-2": "cypress run --spec \"./cypress/integration/greenkart/*\" --browser chrome"
   },
   "repository": {
     "type": "git",

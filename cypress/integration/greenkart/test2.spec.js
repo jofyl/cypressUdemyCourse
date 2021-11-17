@@ -16,6 +16,5 @@ describe('My 2nd test suite', function (){
         cy.get('button').contains('PROCEED TO CHECKOUT').click();
         cy.wait(2000);
         cy.get('button').contains('Place Order').click();
-
     })
 })

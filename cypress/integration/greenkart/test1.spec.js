@@ -44,7 +44,8 @@ describe('My first test suite', function (){
         // When dealing with methods that are not part of cypress, then the you will have to resolve
         // the promise manually using .then() since the commands do not resolve the promises by themselves
 
-
+        // adding failure to test retries
+        cy.get('.brand').should('have.text', 'GREENKARTSSSSSSS');
 
     })
 })

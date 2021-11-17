@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-11-17T00:23:19.871Z",
-    "end": "2021-11-17T00:23:29.559Z",
-    "duration": 9688,
+    "start": "2021-11-17T06:56:01.790Z",
+    "end": "2021-11-17T06:56:12.140Z",
+    "duration": 10350,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e4a0309f-8b22-4a0c-857f-8008c98c3cfd",
+      "uuid": "efda7a05-e5f5-4898-af0b-63f63495bdc8",
       "title": "",
       "fullFile": "cypress/integration/example/test9Framework.spec.js",
       "file": "cypress/integration/example/test9Framework.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "88f33946-a51b-4791-a647-12509096edeb",
+          "uuid": "e393d5c7-f41c-4988-8ab3-544a12cf3331",
           "title": "My 9th test suite",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "My 9th test case using PageObject Model",
               "fullTitle": "My 9th test suite My 9th test case using PageObject Model",
               "timedOut": null,
-              "duration": 8557,
+              "duration": 8994,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit(Cypress.env('url') + '/angularpractice/');\nconst homePage = new _HomePage.default();\nhomePage.getEditBox().type(this.data.name).should('have.attr', 'minlength', '2').and('have.value', this.data.name);\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name);\nhomePage.getEntrepreneurRadioButton().should('be.disabled'); // used to pause the test execution - for debugging\n// cy.pause();\ncy.get('.nav-item:nth-child(2)').click(); // cy.get('h4.card-title').each(($el, index, $list) => {\n//     if ($el.text().includes('Black')) {\n//         // this is one way -> navigate to the element\n//         // cy.wrap($el).parent().next().find('button').click();\n//\n//         // this is another -> fetch the buttons again and use the index\n//         cy.get('.btn.btn-info').eq(index).click();\n//\n//         //another way would have been to fetch and iterate over the cards themselves, and check their children\n//     }\n// })\n// adding the above as a command in commands.js, we do\ncy.selectProduct('Black'); // We can now parametrize - Iterate in JS forEach()\nthis.data.productName.forEach(product => {\n  cy.selectProduct(product);\n});\nconst productPage = new _ProductPage.default();\nproductPage.getCheckoutButton().click();\nlet sum = 0; // you can also use Number() instead of parseInt() or parseFloat()\ncy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {\n  var result = $el.text().split(' ')[1].trim();\n  sum += parseInt(result);\n  cy.log(sum);\n}).then(() => {\n  cy.log(sum);\n  cy.get('h3 > strong').then(element => {\n    var total = parseInt(element.text().split(' ')[1].trim());\n    expect(total).to.equal(sum);\n  });\n}); // in async mode, JS will execute the log below, and prints 0 because let sum = 0; is regular JS not Cypress\ncy.log(sum);\ncy.contains('Checkout').click();\ncy.get('#country').type('India');\ncy.get('.suggestions > ul > li > a').click();\ncy.get('input#checkbox2').check({\n  force: true\n});\ncy.get('.ng-untouched > .btn').click(); // Multiple ways of checking\ncy.get('.alert').should('contain.text', 'Thank you');\ncy.get('.alert').should('include.text', 'Thank you');\ncy.get('.alert').then($element => {\n  expect($element.text().includes('Thank you')).to.be.true;\n  assert($element.text().includes('Thank you') === true, 'doing this using assert');\n});",
               "err": {},
-              "uuid": "7baa0e10-bc00-4d66-870b-4c460ac476f1",
-              "parentUUID": "88f33946-a51b-4791-a647-12509096edeb",
+              "uuid": "cfea0139-2c4b-4193-bdfd-660ce34057bb",
+              "parentUUID": "e393d5c7-f41c-4988-8ab3-544a12cf3331",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7baa0e10-bc00-4d66-870b-4c460ac476f1"
+            "cfea0139-2c4b-4193-bdfd-660ce34057bb"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8557,
+          "duration": 8994,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

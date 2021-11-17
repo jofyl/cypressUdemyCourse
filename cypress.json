@@ -5,5 +5,6 @@
     "url": "https://rahulshettyacademy.com"
   },
   "projectId": "bibj33",
-  "reporter": "mochawesome"
+  "reporter": "mochawesome",
+  "retries": 1
 }

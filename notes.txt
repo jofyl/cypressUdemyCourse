@@ -264,3 +264,39 @@ https://www.npmjs.com/package/mochawesome
 "mocha": "^9.1.3",
 "mochawesome": "^7.0.1"
 
+Scripts and commands
+--------------------
+"cy:run": "cypress run", // you can use this as a base command
+"cy:run-test9": "cypress run --spec ./cypress/integration/example/test9Framework.spec.js",
+"cy:run-test9-other": "npm run cy:run --spec ./cypress/integration/example/test9Framework.spec.js"
+
+Don't forget the -- when passing args to a command when using triggering it using "npm run"
+
+To run tests in a specific directory:
+"cy:run": "cypress run",
+"cy:run-greenkarttests": "npm run cy:run -- --spec \"./cypress/integration/greenkart/*\" "
+
+The below command results in the same thing as above => -- to be used onley when using/embedding "npm run"
+"cy:run-greenkarttests-2": "cypress run --spec \"./cypress/integration/greenkart/*\" "
+
+For test retries:
+https://docs.cypress.io/guides/guides/test-retries#Custom-Configurations
+can be added in cypress.json, per test function (it()) or per test suite (describe())
+
+Jenkins
+-------
+https://www.jenkins.io/doc/book/installing/war-file/
+get the war file
+
+better set the port yourself
+java -jar jenkins.war --httpPort=9090
+
+then go to localhost:9090 and configure it (finish the wizard, install recommended plugins, you can later on install any plugin you need)
+
+Jenins Parametrized builds:
+You select the "this project is parametrized" option
+Provide your variable/parameter with name (let us say we call it: Script) => will be used in build step
+give it a list of Choices (each on a line)
+
+=> then you add a build step
+npm run "$Script"
