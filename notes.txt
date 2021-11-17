@@ -300,3 +300,17 @@ give it a list of Choices (each on a line)
 
 => then you add a build step
 npm run "$Script"
+
+Cucumber and BDD: Behavioral Driven Development
+===============================================
+Syntax: Gherkin
+Check https://github.com/TheBrainFamily/cypress-cucumber-preprocessor for how to integrate it with project
+
+name the feature files and folders the same, place both in the same directory
+ecommerce
+ecommerce.feature
+
+Cucumber supports mocha related hooks as well: before/after/beforeEach/afterEach
+create another setup file in the relevant directory and add these hooks there
+variables defined there will be availabe in the test
+when dealing with hooks + cucumber, better use function() instead of fat arrow "() =>"

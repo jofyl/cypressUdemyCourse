@@ -6,5 +6,6 @@
   },
   "projectId": "bibj33",
   "reporter": "mochawesome",
-  "retries": 1
+  "retries": 1,
+  "testFiles": "**/*.feature"
 }
