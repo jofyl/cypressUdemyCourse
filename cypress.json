@@ -3,5 +3,7 @@
   "viewportHeight": 660,
   "env": {
     "url": "https://rahulshettyacademy.com"
-  }
+  },
+  "projectId": "bibj33",
+  "reporter": "mochawesome"
 }

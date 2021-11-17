@@ -234,6 +234,7 @@ Page Object Model
 -----------------
 check files in /pageObjects for class creation
 check testFramework8.spec.js for usage
+best avoid placing these in "Integration", place them in "Support" so that Cypress does not try to execute them as if tey are test files
 
 JS vs Cypress commands
 ----------------------
@@ -252,3 +253,14 @@ and when using it: Cypress.env('url') => call as if a function
 
 and when running this from the terminal:
 cypress run --spec ./cypress/integration/example/test9Framework.spec.js --env url=https://google.com --headed
+
+External Report Plugin Instead of Cypress Dashboard
+---------------------------------------------------
+https://docs.cypress.io/guides/tooling/reporters
+check link above for additional configs
+
+This is a very nice one: "mochawesome"
+https://www.npmjs.com/package/mochawesome
+"mocha": "^9.1.3",
+"mochawesome": "^7.0.1"
+
