@@ -419,3 +419,35 @@ https://docs.cypress.io/api/commands/request
 cy.request({}) => resolve the promise: .then((response) => { apply your assertions })
 expect(response.status).to.equal(404);
 expect(response.body).to.have.property('name', 'Jane');
+
+Dealing with SSO
+================
+Biggest chanllenges;
+1- captcha
+2- navigating to different domains (if the identity provider sits in a diff domain, like logging in with your google account to zoom)
+
+Check file: logging-in__single-sign-on.zip
+=> you will need to set this up as its own project
+
+Needed data
+-----------
+Authentication Server API Contract Details: -
+url – http://localhost:7075/login?redirectTo=http://localhost:7074/set_token
+Method: POST
+
+url encoded Body content
+username : jane.lane
+password : password123
+
+We Make a Service call to the Identity provider!
+=> In this case, we skip the UI phase, and use cy.request() to do the SSO part
+thus, we avoid navigating across domains
+Might also hel avoid captcha issues when testing
+
+qs: {...} => param: value => this is Query String, gets build on its own, no need to implement a QS builder
+
+=> to run the test servers: npm run dev
+
+http://localhost:7074/set_token => on Success, this set a cookie that localhost:7075 uses to for access
+
+might need form: true (xml form) for the body in case that is what the server expects instead of a JSON body
