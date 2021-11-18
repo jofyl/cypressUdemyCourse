@@ -323,7 +323,7 @@ cypress run --spec "./cypress/integration/example/bdd/ecommerce.feature" --heade
 
 IMPORTANT
 =========
-"testFiles": "**/*.{feature,features,spec.js}" in cypress.json
+"testFiles": ["**/*.feature", "**/*.spec.js"] in cypress.json
 => needed to specify test files that cypress detects files
 
 Cucumber => filling data from the .feature file
@@ -342,3 +342,26 @@ In the code (ste def js files), to access it, we use
 When('I fill the form details', function (dataTable) {
     dataTable.rawTable[x][y]; // case of 2D Table
 }
+
+you can save the above data in a global variable in the file and use it in any function like when you instanciated the page Objects
+
+Tagging
+-------
+@Smoke for exmaple, then you run using:
+npx cypress-tags run -e TAGS='@Smoke'
+=> Only for .feature files, Cucumber, not basic cypress .sepc.js files
+
+cypress-tags run -e TAGS='not @foo and (@bar or @zap)'
+
+{
+    "env": {
+        "TAGS": "not @ignore"
+    },
+    //rest of configuration options
+    "baseUrl": "yourBaseUrl",
+    "ignoreTestFiles": "*.js",
+    //etc
+}
+
+=> can also be configured from the cypress.json env variable
+

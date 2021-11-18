@@ -1,24 +1,24 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
+    "tests": 2,
     "passes": 1,
-    "pending": 0,
+    "pending": 1,
     "failures": 0,
-    "start": "2021-11-17T14:49:07.730Z",
-    "end": "2021-11-17T14:49:20.457Z",
-    "duration": 12727,
-    "testsRegistered": 1,
+    "start": "2021-11-18T07:02:34.336Z",
+    "end": "2021-11-18T07:02:39.687Z",
+    "duration": 5351,
+    "testsRegistered": 2,
     "passPercent": 100,
-    "pendingPercent": 0,
+    "pendingPercent": 50,
     "other": 0,
     "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
+    "skipped": 1,
+    "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "178ecc87-b935-4231-aacd-52131ed98307",
+      "uuid": "4d7a1c25-b138-47f5-b034-ba194619af2f",
       "title": "",
       "fullFile": "cypress/integration/example/bdd/ecommerce.feature",
       "file": "cypress/integration/example/bdd/ecommerce.feature",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "2ea7ea7a-02d6-4479-8a2c-6e439c912488",
+          "uuid": "471745c0-06dc-49ce-9a11-a19050087659",
           "title": "End to End Ecommerce Validation",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,53 @@
               "title": "Ecommerce Products Delivery",
               "fullTitle": "End to End Ecommerce Validation Ecommerce Products Delivery",
               "timedOut": null,
-              "duration": 10112,
+              "duration": 204,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// register this scenario with the cucumber data collector\n// but don't run it\n// Tell mocha this is a skipped test so it also shows correctly in Cypress\nconst state = window.testState;\ncy.then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() => state.onFinishScenario(scenario))\n  // eslint-disable-next-line func-names\n  .then(function () {\n    return this.skip();\n  });",
+              "err": {
+                "message": "CypressError: sync skip; aborting execution",
+                "estack": "[object Object]\nFrom Your Spec Code:\n    at Context.eval (http://localhost:58130/__cypress/tests?p=cypress/integration/example/bdd/ecommerce.feature:11836:10)",
+                "diff": null
+              },
+              "uuid": "bda109af-16fb-4f56-8328-058a2afbf532",
+              "parentUUID": "471745c0-06dc-49ce-9a11-a19050087659",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Filling the shop form",
+              "fullTitle": "End to End Ecommerce Validation Filling the shop form",
+              "timedOut": null,
+              "duration": 3301,
               "state": "passed",
-              "speed": "slow",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "7e4b0e53-c937-4a6a-a894-ee528de79c11",
-              "parentUUID": "2ea7ea7a-02d6-4479-8a2c-6e439c912488",
+              "uuid": "25b7a94c-3799-49ce-a76f-9bdb53616f71",
+              "parentUUID": "471745c0-06dc-49ce-9a11-a19050087659",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7e4b0e53-c937-4a6a-a894-ee528de79c11"
+            "25b7a94c-3799-49ce-a76f-9bdb53616f71"
           ],
           "failures": [],
           "pending": [],
-          "skipped": [],
-          "duration": 10112,
+          "skipped": [
+            "bda109af-16fb-4f56-8328-058a2afbf532"
+          ],
+          "duration": 3505,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

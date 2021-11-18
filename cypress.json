@@ -7,5 +7,5 @@
   "projectId": "bibj33",
   "reporter": "mochawesome",
   "retries": 1,
-  "testFiles": "**/*.{feature,features,spec.js}"
+  "testFiles": ["**/*.feature", "**/*.spec.js"]
 }
