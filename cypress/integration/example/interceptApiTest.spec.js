@@ -16,12 +16,14 @@ describe('my 1st API call intercept test', function () {
         }).as('bookRetrievals');
 
         cy.get('.btn.btn-primary').click();
-        cy.wait('@bookRetrievals');
+
+        // get length or response array => it should match with number of rows in table + account for table header if there is any
+        cy.wait('@bookRetrievals').should(function ({request, response}) {
+            cy.get('tr').should('have.length', response.body.length + 1)
+        });
 
         cy.get('p').then(($element) => {
             expect($element.text()).to.contain('Oops');
         })
     });
-
-
 })

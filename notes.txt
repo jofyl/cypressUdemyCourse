@@ -399,3 +399,10 @@ Use cy.wait() with aliasing an intercepted route to wait for the request/respons
 w cy.wait(alias) can be used here which yields an interception object which represents the request/response cycle
 
 So, mock the response to generate Stub data
+
+Integration Testing between UI and Backend
+------------------------------------------
+cy.wait(alias) can be asserted on: interception object is {request,response}
+So for example, when it comes to tables => you check the number of data returned vs the number of rows generated programatically, this results in better and less flaky tests
+
+
