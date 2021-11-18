@@ -413,6 +413,9 @@ routeHandler => you capture the request, you modify it
 you then do req.continue(routeHandler) => you capture the response here and apply your checks on it
 you can alias and wait as well in case you want to do more checks once the API call is resolved
 
-
-
-
+Making API calls => Generating requests
+---------------------------------------
+https://docs.cypress.io/api/commands/request
+cy.request({}) => resolve the promise: .then((response) => { apply your assertions })
+expect(response.status).to.equal(404);
+expect(response.body).to.have.property('name', 'Jane');

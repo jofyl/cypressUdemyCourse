@@ -41,4 +41,20 @@ describe('my 1st API call intercept test', function () {
         cy.get('.btn.btn-primary').click();
         cy.wait('@modedBookRetrievals');
     });
+
+    it('calls an API', function () {
+        cy.request({
+            method: 'POST',
+            url: 'http://216.10.245.166/Library/Addbook.php',
+            failOnStatusCode: false,
+            body: {
+                "name": "Learn Appium Automation with Java",
+                "isbn": "bcd",
+                "aisle": "227",
+                "author": "John foe"
+            }
+        }).then((response) => {
+            expect(response.status).to.equal(404);
+        })
+    });
 })
