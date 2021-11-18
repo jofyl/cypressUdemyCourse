@@ -405,4 +405,14 @@ Integration Testing between UI and Backend
 cy.wait(alias) can be asserted on: interception object is {request,response}
 So for example, when it comes to tables => you check the number of data returned vs the number of rows generated programatically, this results in better and less flaky tests
 
+Mock HTTP Requests and Purpose
+------------------------------
+For example, modifying request on the fly, hence not need for middle-man tools to do that
+cy.intercept(method, url, routeHandler)
+routeHandler => you capture the request, you modify it
+you then do req.continue(routeHandler) => you capture the response here and apply your checks on it
+you can alias and wait as well in case you want to do more checks once the API call is resolved
+
+
+
 

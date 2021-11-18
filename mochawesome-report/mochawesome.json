@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-18T08:35:43.535Z",
+    "end": "2021-11-18T08:35:46.827Z",
+    "duration": 3292,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "19aa458b-ad59-48ad-90e0-32dd37bcf6dc",
+      "title": "",
+      "fullFile": "cypress/integration/example/interceptApiTest.spec.js",
+      "file": "cypress/integration/example/interceptApiTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "399001d1-2f85-449a-88e8-e652aae6f24e",
+          "title": "my 1st API call intercept test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "intercepts an call and mocks the response",
+              "fullTitle": "my 1st API call intercept test intercepts an call and mocks the response",
+              "timedOut": null,
+              "duration": 721,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/angularAppdemo/'); // Sepc the intercept before doing the action, not after\ncy.intercept({\n  method: 'GET',\n  url: 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=shetty'\n}, {\n  statusCode: 200,\n  body: [{\n    \"book_name\": \"RestAssured with Java\",\n    \"isbn\": \"RSU\",\n    \"aisle\": \"2301\"\n  }]\n}).as('bookRetrievals');\ncy.get('.btn.btn-primary').click(); // get length or response array => it should match with number of rows in table + account for table header if there is any\ncy.wait('@bookRetrievals').should(function (_ref) {\n  var request = _ref.request,\n      response = _ref.response;\n  cy.get('tr').should('have.length', response.body.length + 1);\n});\ncy.get('p').then(function ($element) {\n  expect($element.text()).to.contain('Oops');\n});",
+              "err": {},
+              "uuid": "34e436a6-aeb6-4cdb-be95-eb917a9181bf",
+              "parentUUID": "399001d1-2f85-449a-88e8-e652aae6f24e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "modifies the request in flight",
+              "fullTitle": "my 1st API call intercept test modifies the request in flight",
+              "timedOut": null,
+              "duration": 984,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/angularAppdemo/'); // Sepc the intercept before doing the action, not after\ncy.intercept('GET', 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=shetty', function (req) {\n  req.url = 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=malhotra';\n  req[\"continue\"](function (res) {\n    expect(res.statusCode).to.equal(403);\n  });\n}).as('modedBookRetrievals');\ncy.get('.btn.btn-primary').click();\ncy.wait('@modedBookRetrievals');",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 403",
+                "estack": "AssertionError: expected 200 to equal 403\n    at eval (https://rahulshettyacademy.com/__cypress/tests?p=cypress/integration/example/interceptApiTest.spec.js:36:35)",
+                "diff": "- 200\n+ 403\n"
+              },
+              "uuid": "bec7a6ba-b114-4e7b-80db-b74124887028",
+              "parentUUID": "399001d1-2f85-449a-88e8-e652aae6f24e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "34e436a6-aeb6-4cdb-be95-eb917a9181bf"
+          ],
+          "failures": [
+            "bec7a6ba-b114-4e7b-80db-b74124887028"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1705,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}

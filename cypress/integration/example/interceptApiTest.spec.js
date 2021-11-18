@@ -26,4 +26,19 @@ describe('my 1st API call intercept test', function () {
             expect($element.text()).to.contain('Oops');
         })
     });
+
+    it('modifies the request in flight', function () {
+        cy.visit('https://rahulshettyacademy.com/angularAppdemo/');
+
+        // Sepc the intercept before doing the action, not after
+        cy.intercept('GET', 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=shetty', (req) => {
+            req.url = 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=malhotra';
+            req.continue((res) => {
+                expect(res.statusCode).to.equal(403);
+            });
+        }).as('modedBookRetrievals');
+
+        cy.get('.btn.btn-primary').click();
+        cy.wait('@modedBookRetrievals');
+    });
 })
