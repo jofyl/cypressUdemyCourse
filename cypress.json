@@ -7,5 +7,16 @@
   "projectId": "bibj33",
   "reporter": "mochawesome",
   "retries": 1,
-  "testFiles": ["**/*.feature", "**/*.spec.js"]
+  "testFiles": ["**/*.feature", "**/*.spec.js"],
+  "db": {
+    "userName": "root",
+    "password": "root1989",
+    "server": "127.0.0.1",
+    "port": 3306,
+    "options": {
+      "database": "anghami",
+      "encrypt": true,
+      "rowCollectionOnRequestCompletion" : true
+    }
+  }
 }

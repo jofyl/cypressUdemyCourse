@@ -451,3 +451,25 @@ qs: {...} => param: value => this is Query String, gets build on its own, no nee
 http://localhost:7074/set_token => on Success, this set a cookie that localhost:7075 uses to for access
 
 might need form: true (xml form) for the body in case that is what the server expects instead of a JSON body
+
+
+Connecting to a DB
+==================
+THE PLUGIN HAS ISSUES, so use tedius lib directly:
+https://github.com/cypress-io/cypress/issues/6621
+
+OR use the classic way, with cypress tasks
+https://docs.cypress.io/api/commands/task#Allows-a-single-argument-only
+
+npm install --save-dev cypress-sql-server
+Follow the instructions here: https://www.npmjs.com/package/cypress-sql-server
+fetch the data from the condif file
+const dbConfig = require('../../cypress.json')
+
+https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-Structure
+The test interface, borrowed from Mocha, provides describe(), context(), it() and specify().
+context() is identical to describe() and specify() is identical to it(), so choose whatever terminology works best for you.
+
+ALSO IMPORANT TO READ
+=====================
+https://docs.cypress.io/api/commands/task

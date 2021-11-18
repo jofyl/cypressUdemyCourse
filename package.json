@@ -26,9 +26,12 @@
     "cypress": "^9.0.0",
     "cypress-cucumber-preprocessor": "^4.3.0",
     "cypress-iframe": "^1.0.1",
+    "cypress-sql-server": "^1.0.0",
     "mocha": "^9.1.3",
     "mochawesome": "^7.0.1",
-    "multiple-cucumber-html-reporter": "^1.18.0"
+    "multiple-cucumber-html-reporter": "^1.18.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,

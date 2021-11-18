@@ -16,13 +16,58 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+const cucumber = require('cypress-cucumber-preprocessor').default
+const sqlServer = require('cypress-sql-server');
+const dbConfig = require('../../cypress.json')
+
+const mysql = require('mysql2')
+// the connection strings for different databases could
+// come from a config file, or from environment variables
+const connections = {
+    localDB: {
+        host: '127.0.0.1',
+        port: 3306,
+        user: 'root',
+        password: 'root1989',
+        database: 'anghami'
+    }
 }
 
-const cucumber = require('cypress-cucumber-preprocessor').default
+// querying the database from Node
+function queryDB(connectionInfo, query) {
+    const connection = mysql.createConnection(connectionInfo)
+
+    connection.connect()
+
+    return new Promise((resolve, reject) => {
+        connection.query(query, (error, results) => {
+            if (error) {
+                return reject(error)
+            }
+
+            connection.end()
+
+            return resolve(results)
+        })
+    })
+}
 
 module.exports = (on, config) => {
     on('file:preprocessor', cucumber())
+
+    tasks = sqlServer.loadDBPlugin(dbConfig.db);
+    on('task', tasks);
+
+    on('task', {
+        // destructure the argument into the individual fields
+        queryDatabase({ dbName, query }) {
+            const connectionInfo = connections[dbName]
+
+            if (!connectionInfo) {
+                throw new Error(`Do not have DB connection under name ${dbName}`)
+            }
+
+            return queryDB(connectionInfo, query)
+        },
+    });
 }
