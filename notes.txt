@@ -378,3 +378,24 @@ https://github.com/wswebcreation/multiple-cucumber-html-reporter#cucumber-js-2x-
 Update:
 jsonDir: './path-to-your-json-output/',
 reportPath: './path-where-the-report-needs-to-be/',
+
+Cypress - Intercepting API Call: XHR
+====================================
+We use cy.intercept(requestObj, responseObj) => the Obj here are {...} themselves
+but also, regex can be used, along with other forms of inputs
+
+important page to keep in mind:
+https://docs.cypress.io/api/commands/intercept
+
+IMPORTANT
+---------
+Sepc the intercept before doing the action, not after
+
+Intercepts can be aliased, but not chained
+=> also if a page calls multiple requests, then each request can be aliased on its own
+https://docs.cypress.io/api/commands/intercept#Aliasing-individual-requests
+
+Use cy.wait() with aliasing an intercepted route to wait for the request/response cycle to complete before continuing the test
+w cy.wait(alias) can be used here which yields an interception object which represents the request/response cycle
+
+So, mock the response to generate Stub data
