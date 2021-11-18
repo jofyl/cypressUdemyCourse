@@ -6,3 +6,11 @@ Feature: End to End Ecommerce Validation
     When I add items to cart
     And Validate the total prices
     Then Select the coutry submit and verify thank you message
+
+  Scenario: Filling the shop form
+    Given I open ecommerce page
+    When I fill the form details
+      | name | gender |
+      | bob  | male   |
+    Then Validate the form behavrio
+    And select the Shop page

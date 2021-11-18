@@ -61,3 +61,28 @@ Then('Select the coutry submit and verify thank you message', function () {
         assert($element.text().includes('Thank you') === true, 'doing this using assert');
     })
 })
+
+
+When('I fill the form details', function () {
+    homePage.getEditBox()
+        .type(this.data.name)
+
+    homePage.getGender()
+        .select(this.data.gender);
+})
+
+Then('Validate the form behavrio', function (){
+    homePage.getEditBox()
+        .should('have.attr', 'minlength', '2')
+        .and('have.value', this.data.name);
+
+    homePage.getTwoWayDataBinding()
+        .should('have.value', this.data.name);
+
+    homePage.getEntrepreneurRadioButton()
+        .should('be.disabled');
+})
+
+And('select the Shop page', function () {
+    cy.get('.nav-item:nth-child(2)').click();
+})

@@ -325,3 +325,20 @@ IMPORTANT
 =========
 "testFiles": "**/*.{feature,features,spec.js}" in cypress.json
 => needed to specify test files that cypress detects files
+
+Cucumber => filling data from the .feature file
+Uses table format
+
+Scenario: Filling the shop form
+    Given I open ecommerce page
+    When I fill the form details
+      | name | gender |
+      | bob  | male   |
+    Then Validate the form behavrio
+    And select the Shop page
+
+In the code (ste def js files), to access it, we use
+
+When('I fill the form details', function (dataTable) {
+    dataTable.rawTable[x][y]; // case of 2D Table
+}
