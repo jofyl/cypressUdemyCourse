@@ -365,3 +365,16 @@ cypress-tags run -e TAGS='not @foo and (@bar or @zap)'
 
 => can also be configured from the cypress.json env variable
 
+Building HTML reports - Cucucmber
+---------------------------------
+Install the plugin
+https://github.com/wswebcreation/multiple-cucumber-html-reporter#install
+update the package.json file
+https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#output
+
+create and add the following code from the link below to a file at the project's root directory
+https://github.com/wswebcreation/multiple-cucumber-html-reporter#cucumber-js-2x-and-lower
+
+Update:
+jsonDir: './path-to-your-json-output/',
+reportPath: './path-where-the-report-needs-to-be/',
