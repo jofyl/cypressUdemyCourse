@@ -105,3 +105,11 @@ dist
 
 # IDEs
 .idea/
+
+# Cypress
+cypress/screenshots/*
+cypress/videos/*
+
+# MacOS
+.DS_Store
+cypress/.DS_Store
