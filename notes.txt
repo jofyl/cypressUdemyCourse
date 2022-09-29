@@ -475,3 +475,38 @@ context() is identical to describe() and specify() is identical to it(), so choo
 ALSO IMPORANT TO READ
 =====================
 https://docs.cypress.io/api/commands/task
+
+
++++++++++++++++++++++
+NEW - POST Cetificate
++++++++++++++++++++++
+
+Cypress adding token to local sotrage
+=====================================
+cy.visit("https://...",
+    onBeforeLoad: function(window){
+        window.localStorage.setItem('token', value)
+    }
+)
+
+onBeforeLoad: function(window){...}
+OR
+onBeforeLoad: (window) => {...}
+
+you can fetch the API token using cypress.request().then((response) => {//save the token in env viariables} )
+you can add this a custom command to make you life easier, then call in the test in before() or beforeEach()
+
+Reaching the /cypress folder programatically
+============================================
+Cypress.config('fileServerFolder') + '/cypress/...'
+
+when reading a file
+https://docs.cypress.io/api/commands/readfile
+cy.readFile().then((text) => {
+
+})
+
+if you are using JS object that require await, then
+cy.readFile().then(async function(text) {
+    const x = await obj.someMethod()
+})
